@@ -17,4 +17,5 @@ export const constanst = {
       label: "Jobs",
     },
   ],
+  baseUrl: "https://hacker-news.firebaseio.com/v0",
 };
