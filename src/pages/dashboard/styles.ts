@@ -26,7 +26,7 @@ export const styles = {
     paddingRight: "5%",
   },
   profileDetails: {
-    color: GRAY,
+    backgroundColor: GRAY,
   },
   listContainer: {
     paddingRight: "3%",
