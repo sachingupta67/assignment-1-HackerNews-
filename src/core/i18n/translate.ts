@@ -1,9 +1,9 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import { LOCALES } from "./constants";
-import languageResources from "./messages"; //
+import languageResources from "./messages";
 const defaultLang = languageResources;
-const defaultLocales = LOCALES; //locales will decided which app we are using
+const defaultLocales = LOCALES;
 const languageDetector = {
   type: "languageDetector",
   async: true,
