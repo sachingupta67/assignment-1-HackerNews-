@@ -5,6 +5,7 @@ const TOP_NEWS = "TOP_NEWS";
 const JOB_NEWS = "JOB_NEWS";
 const RESULT = "RESULT";
 const GET_PROFILE_INFO = "GET_PROFILE_INFO";
+const SEARCH_RESULT = "SEARCH_RESULT";
 export const constants = {
   LOADING,
   SHOW_NEWS,
@@ -13,4 +14,5 @@ export const constants = {
   JOB_NEWS,
   RESULT,
   GET_PROFILE_INFO,
+  SEARCH_RESULT,
 };

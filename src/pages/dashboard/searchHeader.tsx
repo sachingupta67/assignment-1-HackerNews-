@@ -12,11 +12,15 @@ import {
 } from "../../core/redux/actions";
 import { commonSelector } from "../../core/redux/selectors";
 import { useDispatch, useSelector } from "react-redux";
+interface Props {
+  handler: any;
+}
 const RADIO_DATA = constanst.stories;
-const SearchHeader: React.FC = () => {
-  const [search, setSearch] = useState("");
+const SearchHeader: React.FC<Props> = ({ handler }) => {
+  const [searchVal, setSearch] = useState("");
   const [radioVal, setRadioVal] = useState(RADIO_DATA[0]);
-  const { result } = useSelector(commonSelector);
+  const { result, search } = useSelector(commonSelector);
+
   const dispatch = useDispatch();
   const newsHandler = useCallback(() => {
     const { id } = radioVal;
@@ -53,10 +57,14 @@ const SearchHeader: React.FC = () => {
 
   const searchHandler = (val: string) => {
     setSearch(val);
-    // let data = result.filter((item: any) =>
-    //   item.title.toLowerCase().match(val.toLowerCase())
-    // );
-    // dispatch(seachFilterAction(data));
+    let data = search.filter((item: any) =>
+      item.title.toLowerCase().match(val.toLowerCase())
+    );
+    if (searchVal.length) {
+      handler(data as any);
+    } else {
+      handler(result as any);
+    }
   };
 
   return (
@@ -68,7 +76,7 @@ const SearchHeader: React.FC = () => {
           }}
           name={"search"}
           type="text"
-          value={search}
+          value={searchVal}
           placeholder={ts("SEARCH_PLACEHOLDER")}
         />
       </div>

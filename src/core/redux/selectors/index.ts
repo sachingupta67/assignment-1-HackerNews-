@@ -9,6 +9,7 @@ interface State {
     isLoading: boolean;
     result: Array<object>;
     profile: object;
+    search: Array<object>;
   };
 }
 
@@ -18,6 +19,6 @@ export const getNewsSelectors = (state: State) => {
 };
 
 export const commonSelector = (state: State) => {
-  const { isLoading, result, profile } = state.common;
-  return { isLoading, result, profile };
+  const { isLoading, result, profile, search } = state.common;
+  return { isLoading, result, profile, search };
 };

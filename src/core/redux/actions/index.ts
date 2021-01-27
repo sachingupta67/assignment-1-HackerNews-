@@ -8,7 +8,7 @@ const {
   TOP_STORIES,
   GET_PROFILE,
 } = endPoints;
-const { LOADING, RESULT, GET_PROFILE_INFO } = constants;
+const { LOADING, RESULT, GET_PROFILE_INFO, SEARCH_RESULT } = constants;
 
 const loadingActions = (payload: boolean) => (dispatch: Function) => {
   dispatch({ type: LOADING, payload });
@@ -26,6 +26,7 @@ export const getShowNews = () => async (dispatch: Function) => {
         temp.push(news.data);
       }
       dispatch({ type: RESULT, payload: temp });
+      dispatch({ type: SEARCH_RESULT, payload: temp });
     }
   } catch (err) {
   } finally {
@@ -45,6 +46,7 @@ export const getTopNews = () => async (dispatch: Function) => {
         temp.push(news.data);
       }
       dispatch({ type: RESULT, payload: temp });
+      dispatch({ type: SEARCH_RESULT, payload: temp });
     }
   } catch (err) {
   } finally {
@@ -64,6 +66,7 @@ export const getAskNews = () => async (dispatch: Function) => {
         temp.push(news.data);
       }
       dispatch({ type: RESULT, payload: temp });
+      dispatch({ type: SEARCH_RESULT, payload: temp });
     }
   } catch (err) {
   } finally {
@@ -83,6 +86,7 @@ export const getJobNews = () => async (dispatch: Function) => {
         temp.push(news.data);
       }
       dispatch({ type: RESULT, payload: temp });
+      dispatch({ type: SEARCH_RESULT, payload: temp });
     }
   } catch (err) {
   } finally {
@@ -93,7 +97,7 @@ export const getJobNews = () => async (dispatch: Function) => {
 export const seachFilterAction = (data: Array<object>) => (
   dispatch: Function
 ) => {
-  dispatch({ type: RESULT, payload: data });
+  dispatch({ type: SEARCH_RESULT, payload: data });
 };
 
 export const getProfile = (name: string) => async (dispatch: Function) => {
